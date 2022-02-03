@@ -1,0 +1,34 @@
+{% extends 'base/layout.html' %}
+{% block content %}
+    <div class="header-bar">
+        <div>
+            <h1>Hello {{request.user|title}}</h1>
+        </div>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}"><span class="underline-on-hover">logout</span></a> {% else %}
+        <a href="{% url 'login' %}">Login</a> {% endif %}
+    </div>
+    
+<!--<div id="search-add-wrapper">
+        <form method="GET" style="display: flex;">
+            <input type='text' name='search-area' placeholder="Search your task" value="{{search_input}}">
+            <input class="button" type="submit" value='Search'>
+        </form>
+
+        <a id="add-link" href="{% url 'share-create' %}">&#x2b;</a>
+
+    </div>
+        <div class="task-items-wrapper">
+        {% for share in shares %}
+        <div class="task-wrapper">
+            <div class="task-title">
+                <i><s><a href="{% url 'sharing-update' share.id %}">{{share}}</a></s><p> created by {{share.user}}</p></i>
+
+            </div>
+            <a class="delete-link" href="{% url 'task-delete' share.id %}">&#215;</a>
+        </div>
+        {% empty %}
+        {% endfor %}
+
+    </div>-->
+{% endblock content %}
